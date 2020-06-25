@@ -3,7 +3,7 @@ from datetime import datetime
 
 # retrieve data
 req = requests.get("https://petition.parliament.uk/petitions.csv?state=open")
-data_path = "/home/pi/Documents/uk_parliament_petitions/"
+data_path = "/home/pi/Documents/uk_parliament_petitions/data/"
 
 if req.ok:
     lines = req.text.strip().split('\n')
@@ -15,7 +15,7 @@ if req.ok:
         now = datetime.now()
 
         # save it
-        fh = open(data_path + 'data/' + now.strftime("%Y-%m-%d_%H-%M-%S") + '_ukpp.csv', 'w')
+        fh = open(data_path + now.strftime("%Y-%m-%d_%H-%M-%S") + '_ukpp.csv', 'w')
 
         fh.write(req.text)
 
