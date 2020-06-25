@@ -3,7 +3,7 @@ from datetime import datetime
 
 # retrieve data
 req = requests.get("https://petition.parliament.uk/petitions.csv?state=open")
-data_path = "/home/pi/Documents/uk_parliament_petitions/data/"
+data_path = "data/"
 
 if req.ok:
     lines = req.text.strip().split('\n')
